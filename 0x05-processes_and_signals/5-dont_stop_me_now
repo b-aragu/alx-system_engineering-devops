@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Get the process ID of the 4-to_infinity_and_beyond process
-PID=$(ps aux | grep '4-to_infinity_and_beyond' | grep -v grep | awk '{print $2}')
-# Check if the process ID is valid
-if [[ -n $PID ]]; then
-  # Use the kill command to stop the process
-  kill "$PID"
-fi
