@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# List content of the current directory
+
+for file in *; do
+    # Check if the file is a regular file and not hidden
+    if [ -f "$file" ] && [[ "$file" != .* ]]; then
+        # Extract the part of the name after the first dash
+        echo "$file"
+    fi
+done
+
