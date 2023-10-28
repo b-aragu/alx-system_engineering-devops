@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# stopping process without using kill or killall
+pkill "7-higlander"
