@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# stop bash using kill
+nu=$(pgrep -f "4-to_infinity_and_beyond")
+kill "$nu"
