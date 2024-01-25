@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# uses Until to display Best School 10 times
+# until best school
 i=0
-until [ "$i" = "10" ]
+until [ $i -eq 10 ]
 do
-	echo "Best School"
-	i=$((i + 1))
+  echo "Best School"
+  ((i++))
 done
