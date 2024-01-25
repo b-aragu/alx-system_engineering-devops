@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# displays time
-minute=1
+# displays hour from one to 12 and min from 1 - 59
+
 hour=0
-echo "Hour: $hour"
-while [ "$hour" -lt 12 ]
+
+while ((hour <= 12 ))
 do
-	while [ "$minute" -le 59 ]
-	do 
-		echo "$minute"
-		minute=$((minute + 1))
-	done
-	hour=$((hour + 1))
-	echo "Hour: $hour"
-	minute=1
+  echo "Hour: $hour"
+  minute=1
+  while ((minute <= 59))
+  do
+    echo "$minute"
+    ((minute++))
+  done
+  ((hour++))
 done
