@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
-# displays bad luck - 4th iteratiion good - 8th Best School - the rest
-i=0
-while [ "$i" -lt 10 ]
-do
-	if [ "$i" -eq 3 ];then
-		echo "bad luck"
-	elif [ "$i" -eq 7 ]; then
-		echo "good luck"
-	else
-		echo "Best School"
-	fi
-	i=$((i + 1))
-done
+# 4 is youy bad luck
+
+i=1
+
+while (( i <= 10))
+  do
+    if (( i == 4)); then
+      echo "bad luck"
+    elif (( i == 8)); then
+      echo "good luck"
+    else
+      echo "Best School"
+    fi
+    ((i++))
+  done
