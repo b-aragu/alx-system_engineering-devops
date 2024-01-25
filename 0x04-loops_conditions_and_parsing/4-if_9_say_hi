@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
-# display best chool 10 times and then for 9th iteration hi
-i=0
-while [ "$i" -lt 10 ]
-do
-	if [ "$i" -eq 9 ];then
-		echo "Hi"
-	fi
-	echo "Best School"
-	i=$((i + 1))
-done
+# 4 if 9 say hi
 
+i=1
+while [ $i -le 10 ]
+  do 
+    if (( i == 9 ))
+      then 
+      echo "Hi"
+    else
+      echo "Best School"
+    fi
+    (( i++ ))
+  done
