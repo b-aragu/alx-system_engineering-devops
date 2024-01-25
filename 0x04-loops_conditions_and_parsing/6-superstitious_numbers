@@ -1,25 +1,29 @@
 #!/usr/bin/env bash
-#superstitious numbers 
-i=1
-while [ "$i" -le 20 ]
-do
-	case $i in
-		4)
-			echo "$i"
-			echo "bad luck from China"
-			;;
-		9)
-			echo "$i"
-			echo "bad luck from Japan"
-			;;
-		17)
-			echo "$i"
-			echo "bad luck from Italy"
-			;;
-		*)
-			echo "$i"
-			;;
-		esac
-	i=$((i + 1))
-done
+# displays number from 1..20
+# 4 is bad luck from china
+# 9 is bad luck from Japan
+# 17 is bad luck from Italy
 
+i=1
+
+while(( i <= 20)); do
+
+  case $i in
+    4)
+      echo "$i"
+      echo "bad luck from China"
+      ;;
+    9)
+      echo "$i"
+      echo "bad luck from Japan"
+      ;;
+    17)
+      echo "$i"
+      echo "bad luck from Italy"
+      ;;
+    *)
+      echo "$i"
+      ;;
+  esac
+  ((i++))
+done
