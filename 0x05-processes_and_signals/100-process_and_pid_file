@@ -1,23 +1,32 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Function to clean up and exit
-cleanup() {
-    echo "Cleaning up and exiting..."
-    rm -f /var/run/myscript.pid
-    exit 0
+# File path for PID
+pid_file="/var/run/myscript.pid"
+
+# Function to handle termination signals
+terminate_script() {
+    echo "Received termination signal. Cleaning up and exiting..."
+    rm -f "$pid_file"
+    exit
 }
 
-# Trap signals and perform actions
-trap 'echo "I hate the kill command" && exit' SIGTERM
-trap 'echo "Y U no love me?!"' SIGINT
-trap 'cleanup' SIGQUIT
+# Function to handle SIGINT signal
+handle_sigint() {
+    echo "Y U no love me?!"
+}
 
-# Create a file with the script's PID
-echo $$ > /var/run/myscript.pid
+# Trap signals
+trap 'terminate_script' SIGQUIT SIGTERM
+trap 'handle_sigint' SIGINT
 
-# Display messages indefinitely
+# Write PID to file
+echo $$ > "$pid_file"
+
+# Display message indefinitely
+echo "To infinity and beyond!"
+
+# Keep the script running
 while true; do
-    echo "To infinity and beyond"
-    sleep 2
+    sleep 1
 done
 
