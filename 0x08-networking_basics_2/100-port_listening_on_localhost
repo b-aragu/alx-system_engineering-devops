@@ -1,6 +1,6 @@
-#!/bin/bash
-
+#/usr!/bin/env bash
 # Port to listen on
+
 PORT=98
 
 # Start listening on the specified port
