@@ -1,4 +1,18 @@
 #!/usr/bin/env ruby
-# Match a 10 digit phone number 4155049898 without spaces or dashes
+# A script that checks a 10 numbers exactly
 
-puts ARGV[0].scan(/^[0-9]{10}$/).join
+def match_word(arg)
+  regex = /\b\d{10}\b/
+  matches = arg.scan(regex)
+  result = matches.join
+  puts result
+end
+
+# check commandline arguments
+
+if ARGV.empty?
+  puts "Usage: #{$PROGRAM_NAME} <argument>"
+else
+  argument = ARGV[0]
+  match_word(argument)
+end
