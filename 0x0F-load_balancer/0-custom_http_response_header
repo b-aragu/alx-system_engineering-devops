@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# configure web-o01 to have http response header
+
+#updating packages
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# creating an index page
+echo "Hello world!" | sudo tee /var/www/html/index.html
+
+# carry out redirection
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.baragu.tech permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Creating a custom error page
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# Custom HTTP response Header
+
+sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+# test for syntax error
+sudo nginx -t
+
+# restart nginx 
+sudo service nginx restart
