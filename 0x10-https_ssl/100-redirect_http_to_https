@@ -10,10 +10,10 @@ defaults
 	timeout client  30s
 	timeout server  30s
 
-frontend http_frontd
+frontend http_front
 	bind *:80
 	bind *:443 ssl crt /etc/haproxy/certs/baragu.tech.pem
-	http-request redirect scheme https unless { ssl_fc }
+	http-request redirect scheme https code 301 unless { ssl_fc }
 	http-request set-header X-Forwarded-Proto https
 	default_backend http_back
 
